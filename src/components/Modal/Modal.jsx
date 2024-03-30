@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 export default function Modal() {
-    const [hidden, setHidden] = useState("hidden");
+    const [display, setDisplay] = useState("none");
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -28,7 +28,7 @@ export default function Modal() {
     const submitHandler = (e) => {
         e.preventDefault();
         if (validate()) {
-            setHidden("hidden");
+            setDisplay("none")
             setFormData({
                 username: "",
                 email: "",
@@ -42,8 +42,8 @@ export default function Modal() {
     return (
         <div className='wrapper'>
             <h1>User Details Modal</h1>
-            <button onClick={() => setHidden("")} className='btn-open-form'>Open Form</button>
-            <div onClick={(e) => e.target.className === "modal " && setHidden("hidden")} className={`modal ${hidden}`}>
+            <button onClick={() => setDisplay("block")} className='btn-open-form'>Open Form</button>
+            <div style={{display: `${display}`}} onClick={(e) => e.target.className === "modal" && setDisplay("none")} className={`modal`}>
                 <div className='modal-content'>
                     <h2>Fill Details</h2>
                     <form onSubmit={submitHandler} className='modal-form'>
