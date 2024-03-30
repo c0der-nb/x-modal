@@ -12,7 +12,7 @@ export default function Modal() {
     const validate = () => {
         const today = new Date();
         if (formData.phone.length < 10 || !formData.phone) {
-            alert("Invalid phone number. Please enter a 10-digit phone number");
+            alert("Invalid phone number. Please enter a 10-digit phone number.");
             return false;
         }
         else if (!formData.username || !formData.email) {
@@ -55,7 +55,7 @@ export default function Modal() {
                         <input onChange={(e) => setFormData((prev) => ({...prev, phone: e.target.value}))} type="number" id="phone" required />
                         <label for="dob">Date of Birth:</label>
                         <input onChange={(e) => setFormData((prev) => ({...prev, dob: e.target.value}))} type="date" id="dob" required />
-                        <button type="submit" className="btn-submit">Submit</button>
+                        <button type="submit" className="submit-button">Submit</button>
                     </form>
                 </div>
             </div>
